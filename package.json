@@ -1,5 +1,5 @@
 {
-  "name": "@meltwater/tau",
+  "name": "@pureskillgg/tau",
   "version": "3.2.0",
   "description": "Functional time and date tools for JavaScript inspired by Luxon.",
   "type": "module",
@@ -12,16 +12,17 @@
   "sideEffects": false,
   "keywords": [
     "meltwater",
+    "pureskillgg",
     "luxon",
     "node"
   ],
-  "homepage": "https://github.com/meltwater/tau",
-  "bugs": "https://github.com/meltwater/tau/issues",
-  "repository": "meltwater/tau",
+  "homepage": "https://github.com/pureskillgg/mw-tau",
+  "bugs": "https://github.com/pureskillgg/mw-tau/issues",
+  "repository": "pureskillgg/mw-tau",
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
-    "email": "evan.sosenko@meltwater.com"
+    "email": "evan@pureskill.gg"
   },
   "files": [
     "yarn.lock",
@@ -133,7 +134,7 @@
     "@babel/core": "^7.0.1",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@meltwater/examplr": "^6.0.0",
+    "@pureskillgg/examplr": "^6.0.0",
     "ava": "^3.3.0",
     "babel-plugin-add-import-extension": "^1.4.3",
     "del-cli": "^4.0.1",

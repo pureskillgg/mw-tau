@@ -1,6 +1,6 @@
 # τ
 
-[![npm](https://img.shields.io/npm/v/@meltwater/tau.svg)](https://www.npmjs.com/package/@meltwater/tau)
+[![npm](https://img.shields.io/npm/v/@pureskillgg/tau.svg)](https://www.npmjs.com/package/@pureskillgg/tau)
 [![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/tau)
 [![docs](https://img.shields.io/badge/docs-latest-green.svg)](https://tau.meltwaterlabs.com)
 [![Codecov](https://img.shields.io/codecov/c/github/meltwater/tau.svg)](https://codecov.io/gh/meltwater/tau)
@@ -23,13 +23,13 @@ so they all may be imported from the same place.
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install @meltwater/tau
+$ npm install @pureskillgg/tau
 ```
 
 or using [Yarn] with
 
 ```
-$ yarn add @meltwater/tau
+$ yarn add @pureskillgg/tau
 ```
 
 [npm]: https://www.npmjs.com/
@@ -40,8 +40,8 @@ $ yarn add @meltwater/tau
 **See the complete [API documentation] and [working examples](./examples).**
 
 ```js
-import { compose } from '@meltwater/phi' // standard compose function
-import { toIso, fromNow } from '@meltwater/tau'
+import { compose } from '@pureskillgg/phi' // standard compose function
+import { toIso, fromNow } from '@pureskillgg/tau'
 
 const sinceStartOfToday = compose(
   toRelative,
@@ -53,8 +53,8 @@ sinceStartOfToday() //=> '12 hours ago'
 ```
 
 ```js
-import { compose, gt } from '@meltwater/phi'
-import { fromIso, diffNow, days } from '@meltwater/tau'
+import { compose, gt } from '@pureskillgg/phi'
+import { fromIso, diffNow, days } from '@pureskillgg/tau'
 
 const isIsoMoreThanNDaysOld = n => compose(
   gt(-n),
