@@ -53,12 +53,12 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Sentry release
-        uses: getsentry/action-release@v2
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: ${{ github.repository_owner }}
-          SENTRY_PROJECT: ${{ github.event.repository.name }}
-        with:
-          version: ${{ steps.version.outputs.current }}
-          version_prefix: ${{ github.event.repository.name }}@
+      # - name: Sentry release
+      #   uses: getsentry/action-release@v2
+      #   env:
+      #     SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      #     SENTRY_ORG: ${{ github.repository_owner }}
+      #     SENTRY_PROJECT: ${{ github.event.repository.name }}
+      #   with:
+      #     version: ${{ steps.version.outputs.current }}
+      #     version_prefix: ${{ github.event.repository.name }}@
