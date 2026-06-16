@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [3.3.2] / 2026-06-02
+
+### Changed
+
+- Use Yarn in the publish workflow.
+
+## [3.3.1] / 2026-06-02
+
+### Changed
+
+- Install dependencies in the publish workflow.
+
+## [3.3.0] / 2026-06-02
+
+### Changed
+
+- Add a build step before publishing to npm.
+- Stop publishing releases to Sentry.
+
+## [3.2.2] / 2026-05-31
+
+- Version bump; no code changes.
+
+## [3.2.1] / 2026-05-31
+
+### Changed
+
+- Rename package from `@meltwater/tau` to `@pureskillgg/tau`.
+- Update GitHub Actions workflows and dependency lock file.
+
 ## [3.2.0] / 2022-02-25
 
 ### Changed
@@ -250,7 +280,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/tau/compare/v3.2.0...HEAD
+[Unreleased]: https://github.com/meltwater/tau/compare/v3.3.2...HEAD
+[3.3.2]: https://github.com/meltwater/tau/compare/v3.3.1...v3.3.2
+[3.3.1]: https://github.com/meltwater/tau/compare/v3.3.0...v3.3.1
+[3.3.0]: https://github.com/meltwater/tau/compare/v3.2.2...v3.3.0
+[3.2.2]: https://github.com/meltwater/tau/compare/v3.2.1...v3.2.2
+[3.2.1]: https://github.com/meltwater/tau/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/meltwater/tau/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/meltwater/tau/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/meltwater/tau/compare/v2.1.0...v3.0.0
