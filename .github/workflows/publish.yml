@@ -11,14 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '18'
+          node-version: '22'
           registry-url: https://registry.npmjs.org
+          cache: npm
       - name: Install dependencies
-        run: yarn install
+        run: npm ci
       - name: Check version
         id: version
         run: |
@@ -29,21 +30,22 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish ${{ steps.version.outputs.name }}@${{ steps.version.outputs.current }}
         if: steps.version.outputs.current != steps.version.outputs.published
-        run: npm run dist && npm publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   github:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '18'
+          node-version: '22'
           registry-url: https://npm.pkg.github.com
+          cache: npm
       - name: Install dependencies
-        run: yarn install
+        run: npm ci
       - name: Check version
         id: version
         run: |
@@ -54,7 +56,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish ${{ steps.version.outputs.name }}@${{ steps.version.outputs.current }}
         if: steps.version.outputs.current != steps.version.outputs.published
-        run: npm run dist && npm publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Sentry release

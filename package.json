@@ -3,10 +3,9 @@
   "version": "3.3.2",
   "description": "Functional time and date tools for JavaScript inspired by Luxon.",
   "type": "module",
-  "main": "dist/index.cjs",
+  "main": "index.js",
   "exports": {
-    "import": "./index.js",
-    "require": "./dist/index.cjs"
+    "import": "./index.js"
   },
   "module": "index.js",
   "sideEffects": false,
@@ -18,142 +17,60 @@
   ],
   "homepage": "https://github.com/pureskillgg/mw-tau",
   "bugs": "https://github.com/pureskillgg/mw-tau/issues",
-  "repository": "pureskillgg/mw-tau",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pureskillgg/mw-tau.git"
+  },
   "license": "MIT",
   "author": {
     "name": "Evan Sosenko",
     "email": "evan@pureskill.gg"
   },
   "files": [
-    "yarn.lock",
+    "package-lock.json",
     "index.js",
-    "lib",
-    "data",
-    "dist"
+    "lib"
   ],
   "scripts": {
-    "test": "nyc ava",
-    "pretest": "npm-run-all lint",
-    "posttest": "node index.js",
+    "test": "c8 ava",
+    "pretest": "node index.js",
     "test:update": "ava --update-snapshots",
     "test:watch": "ava --watch",
-    "test:inspect": "node --inspect node_modules/ava/profile",
-    "test:inspect:watch": "nodemon --inspect node_modules/ava/profile",
-    "lint": "gulp lint",
-    "clean": "del dist docs",
-    "build": "npm-run-all --parallel build:*",
-    "prebuild": "npm-run-all clean",
-    "build:index": "babel --source-maps --out-file-extension .cjs --out-dir dist index.js",
-    "build:lib": "babel --source-maps --ignore='**/*.spec.js' --out-file-extension .cjs --out-dir dist/lib lib",
+    "test:debug": "ava debug --break",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:js": "eslint .",
+    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{js,cjs,mjs,json,yml,yaml,graphql}'",
     "build:docs": "jsdoc -c jsdoc.json",
-    "dist": "npm-run-all build",
-    "predist": "npm-run-all test",
-    "preversion": "npm-run-all dist",
-    "postversion": "git push && git push --tags",
-    "publish:docs": "gulp docs",
+    "prepublishOnly": "npm-run-all --parallel lint test",
+    "preversion": "npm-run-all --parallel lint test",
+    "postversion": "git push --follow-tags",
     "example": "node examples",
-    "example:watch": "nodemon examples",
     "example:inspect": "node --inspect examples",
-    "example:inspect:watch": "nodemon --inspect examples",
-    "watch": "gulp watch",
-    "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql)'",
-    "format": "npm-run-all --serial pretty format:*",
-    "format:js": "standard --fix",
-    "report": "nyc report"
-  },
-  "babel": {
-    "plugins": [
-      [
-        "babel-plugin-add-import-extension",
-        {
-          "extension": "cjs",
-          "replace": true
-        }
-      ]
-    ],
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
-  },
-  "ava": {
-    "files": [
-      "**/*.spec.js",
-      "!dist/**/*",
-      "!package/**/*"
-    ]
-  },
-  "nyc": {
-    "exclude": [
-      "**/index.js",
-      "dist/**/*.js",
-      "docs/**/*.js",
-      "package/**/*.js",
-      "examples/**/*.js",
-      "**/*.spec.js"
-    ],
-    "reporter": [
-      "html",
-      "lcov",
-      "text"
-    ]
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "**/*.spec.js",
-      "test/",
-      "tmp/"
-    ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "trailingComma": "none",
-    "endOfLine": "lf"
+    "format": "npm-run-all --parallel format:*",
+    "preformat": "prettier --write --ignore-path .gitignore '**/*.{js,cjs,mjs,json,yml,yaml,graphql}'",
+    "format:js": "eslint --fix .",
+    "report": "c8 report"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=22.0.0"
   },
-  "resolutions": {
-    "eslint": "^7.12.1",
-    "standard": "^16.0.2"
+  "overrides": {
+    "uuid": "^11.1.1"
   },
   "dependencies": {
-    "luxon": "~2.3.1",
-    "ramda": "^0.28.0"
+    "luxon": "^3.7.2",
+    "ramda": "^0.32.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@pureskillgg/examplr": "^7.0.0",
-    "ava": "^3.3.0",
-    "babel-plugin-add-import-extension": "^1.4.3",
-    "del-cli": "^4.0.1",
-    "docdash": "^1.0.0",
-    "eslint": "^7.12.1",
-    "gh-pages": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-cli": "^2.0.0",
-    "gulp-jsonlint": "^1.1.2",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-standard": "^14.0.0",
-    "gulp-watch": "^5.0.0",
-    "gulplog": "^1.0.0",
-    "jsdoc": "^3.5.5",
-    "nodemon": "^2.0.1",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^15.0.0",
-    "prettier": "^2.0.1",
-    "standard": "^16.0.2"
+    "@pureskillgg/examplr": "^7.1.1",
+    "ava": "^8.0.1",
+    "c8": "^11.0.0",
+    "docdash": "^2.0.2",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "jsdoc": "^4.0.5",
+    "neostandard": "^0.13.0",
+    "npm-run-all2": "^9.0.2",
+    "prettier": "^3.9.4"
   }
 }
