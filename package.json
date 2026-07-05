@@ -1,6 +1,6 @@
 {
   "name": "@pureskillgg/tau",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Functional time and date tools for JavaScript inspired by Luxon.",
   "type": "module",
   "main": "index.js",
