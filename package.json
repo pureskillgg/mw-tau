@@ -54,15 +54,12 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "overrides": {
-    "uuid": "^11.1.1"
-  },
   "dependencies": {
     "luxon": "^3.7.2",
     "ramda": "^0.32.0"
   },
   "devDependencies": {
-    "@pureskillgg/examplr": "^7.1.1",
+    "@pureskillgg/examplr": "^8.0.1",
     "ava": "^8.0.1",
     "c8": "^11.0.0",
     "docdash": "^2.0.2",
